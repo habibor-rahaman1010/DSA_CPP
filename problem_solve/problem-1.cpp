@@ -1,5 +1,5 @@
-
 #include <iostream>
+#include <algorithm>
 #include <vector>
 using namespace std;
 
@@ -8,12 +8,14 @@ int main() {
     cin.tie(NULL);
 
     int n;
+    cin>> n;
     vector<int>ara;
     ara.resize(n);
 
     for(int i = 0; i < n; i++){
         cin>> ara[i];
     }
+    sort(ara.begin(), ara.end());
 
     int ans = 0;
 
