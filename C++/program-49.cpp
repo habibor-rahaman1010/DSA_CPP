@@ -1,4 +1,4 @@
-// 1 to n print use for loop in c++ program...
+// 1 to n number sum print use for loop in c++ program...
 
 #include <iostream>
 using namespace std;
@@ -8,9 +8,11 @@ int main() {
     cout<< "Enter the value of n: ";
     cin>> n;
 
+    int sum = 0;
     for(int i = 1; i <= n; i++){
-        cout<< i <<endl;
+        sum += i;
     }
+    cout<< "Total sum: " << sum << endl;
 
 return 0;
 }

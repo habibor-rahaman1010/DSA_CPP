@@ -1,4 +1,4 @@
-// 1 to n print use for loop in c++ program...
+// 1 to n even number print use for loop in c++ program...
 
 #include <iostream>
 using namespace std;
@@ -9,8 +9,11 @@ int main() {
     cin>> n;
 
     for(int i = 1; i <= n; i++){
-        cout<< i <<endl;
+        if(i % 2 == 0){
+            cout<< i <<endl;
+        }
     }
 
 return 0;
 }
+
