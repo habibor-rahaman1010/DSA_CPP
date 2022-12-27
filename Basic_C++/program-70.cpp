@@ -1,4 +1,4 @@
-// multi dimensional array in c++ program...
+// multi dimensional array in c++ program find out min element...
 
 #include <iostream>
 using namespace std;
@@ -10,12 +10,15 @@ int main() {
         {11, 24, 66}
     };
 
+    int minn = number[0][0];
     for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
-            cout<< number[i][j] << " ";
+            if(number[i][j] < minn){
+                minn = number[i][j];
+            }
         }
-        cout<< "\n";
     }
+    cout<< "max element is: " << minn << "\n";
 
 return 0;
 }
