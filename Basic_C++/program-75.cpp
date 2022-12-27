@@ -20,17 +20,17 @@ int main() {
 
     for(int i = 0; i < n; i++){
         cout<< "Enter id: ";
-        getline(cin, s1.name);
+        cin>> s1.id;
 
         cout<< "Enter name: ";
-        cin>> s1.name;
+        getline(cin, s1.name);
 
         cout<< "Enter email: ";
         cin>> s1.email;
 
         cout<< "Enter subjects: ";
         for(int j = 0; j < 5; j++){
-            cin>> s1.sub[i];
+            cin>> s1.sub[j];
         }
 
         cout<< "Enter phone: ";
@@ -46,7 +46,7 @@ int main() {
         cout<<"email: " << s1.email <<"\n";
         cout<<"subjects: \n";
         for(int j = 0; j < 5; j++){
-            cout<<"\t" << s1.sub[i] <<"\n";
+            cout<<"\t" << s1.sub[j] <<"\n";
         }
 
         cout<<"phone: " << s1.phone <<"\n";
