@@ -4,8 +4,9 @@
 using namespace std;
 
 int main() {
-    int ara[5];
+    int ara[5] = {34, 45, 67, 56, 78};
 
+    // reassign value in array...
     ara[0] = 12;
     ara[1] = 16;
     ara[2] = 9;
@@ -21,3 +22,4 @@ int main() {
 
 return 0;
 }
+
