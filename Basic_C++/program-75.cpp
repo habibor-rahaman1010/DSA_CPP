@@ -24,6 +24,7 @@ int main() {
 
         cout<< "Enter name: ";
         getline(cin, s1.name);
+        getline(cin, s1.name);
 
         cout<< "Enter email: ";
         cin>> s1.email;
@@ -38,8 +39,10 @@ int main() {
 
         cout<< "Enter status: ";
         cin>> s1.status;
+        cout<<"\n";
     }
 
+    cout<<"\n";
     for(int i = 0; i < n; i++){
         cout<<"id: " << s1.id <<"\n";
         cout<<"name: " << s1.name <<"\n";
@@ -51,7 +54,9 @@ int main() {
 
         cout<<"phone: " << s1.phone <<"\n";
         cout<<"status: " << s1.status <<"\n";
+        cout<<"\n";
     }
+    cout<<"\n";
 
 return 0;
 }
