@@ -18,7 +18,8 @@ int main() {
     }
 
     for(iter = number.begin(); iter != number.end(); iter++){
-        cout<< *iter <<" ";
+
+        cout<<*iter <<" ";
     }
 
 return 0;

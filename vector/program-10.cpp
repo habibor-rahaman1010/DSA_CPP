@@ -17,10 +17,10 @@ int main() {
         cin>>number[i];
     }
 
-    for(iter = number.begin(); iter != number.end(); iter++){
-        cout<< *iter <<" ";
+    for(int i = 0; i < number.size(); i++){
+        iter = number.begin() + i;
+        cout<<*iter <<" ";
     }
 
 return 0;
 }
-
