@@ -1,4 +1,4 @@
-//inside constructor in c++ program...
+//outside constructor of class in c++ program...
 
 #include <iostream>
 using namespace std;
@@ -11,14 +11,16 @@ class Car {
         int gear;
         int topSpeed;
 
-        Car(string model, string brand, int price, int gear, int topSpeed){
-            this->model = model;
-            this->brand = brand;
-            this->price = price;
-            this->gear = gear;
-            this->topSpeed = topSpeed;
-        }
+        Car(string model, string brand, int price, int gear, int topSpeed);
 };
+
+Car::Car(string model, string brand, int price, int gear, int topSpeed){
+    this->model = model;
+    this->brand = brand;
+    this->price = price;
+    this->gear = gear;
+    this->topSpeed = topSpeed;
+}
 
 int main() {
     Car toyota("Primo", "Toyota", 1800000, 5, 180);
