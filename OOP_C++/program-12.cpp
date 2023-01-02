@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 
+//base class (parent)
 class Vehicle {
     public:
         string model;
@@ -14,6 +15,7 @@ class Vehicle {
         }
 };
 
+//derived class (child)
 class Car : public Vehicle{
     public:
         string color;
