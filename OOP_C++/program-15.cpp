@@ -70,7 +70,12 @@ int main() {
     Person habib("Habibor Rahaman", "01768280237", "habibor.rahaman1010@gmail.com", "05-03-1999", "Islam", "Munshiganj-Dhaka",
         "CSE Student", "Bangladesh", 45780, "Computer Programming");
 
+    Person allen("Allen Sovo", "01739230492", "allensovo@0101gmail.com", "05-03-1993", "Islam", "Dhaka",
+        "CSE Student", "Bangladesh", 145780, "Computer Programming");
+
     habib.displayInfo();
+    cout<<"\n";
+    allen.displayInfo();
 
 return 0;
 }
