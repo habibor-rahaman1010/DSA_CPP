@@ -38,7 +38,7 @@ class Admin : public User {
             this->destination = destination;
         }
         bool operator < (Admin s) {
-            return this->i
+            return this->id < s.id;
         }
 };
 
