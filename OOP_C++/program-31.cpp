@@ -1,4 +1,4 @@
-// Recursive class in c++ OOP concept...use constructor...
+// Recursive class in c++ OOP concept...use constructor and destructor...
 
 #include <iostream>
 #include <string>
@@ -30,7 +30,13 @@ class Student {
 
         //This is my empty constructor in program...
         Student() {
-
+            this->id = NULL;
+            this->name = NULL;
+            this->phone = NULL;
+            this->email = NULL;
+            this->age = NULL;
+            this->shift = NULL;
+            this->active = NULL;
         }
 
          //This is my constructor in program...
@@ -57,6 +63,17 @@ class Student {
             this->active->typeBool = active;
         }
 
+        //This is my destructor in program...
+        ~Student() {
+            cout<<"called \n";
+            delete id;
+            delete name;
+            delete phone;
+            delete email;
+            delete age;
+            delete shift;
+            delete active;
+        }
 };
 
 int main() {
