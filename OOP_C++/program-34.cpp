@@ -1,7 +1,8 @@
-// Recursive class in c++ OOP concept...and dynamic object creation and array of class...
+// Recursive class in c++ OOP concept...and dynamic object creation and vector of class...
 
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 class Student {
@@ -66,12 +67,13 @@ int main() {
     cout<<"\n";
     (*s1).displayInformation(); //another way to call dynamic object..
 */
-    Student s[5];
-    for(int i = 0; i < 5; i++){
+    vector<Student>s;
+    s.resize(5);
+    for(int i = 0; i < s.size(); i++){
         s[i] = Student(i + 1, "Habibor Rahaman", "01768280237", "hbaibor.rahaman1010@gmail.com", 23, "Morning", true);
     }
 
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < s.size(); i++){
         s[i].displayInformation();
         cout<<"\n";
     }
