@@ -66,13 +66,27 @@ class Student {
         //This is my destructor in program...
         ~Student() {
             cout<<"called \n";
-            delete id;
-            delete name;
-            delete phone;
-            delete email;
-            delete age;
-            delete shift;
-            delete active;
+            if(this->id != NULL){
+                delete this->id;
+            }
+            if(this->name != NULL){
+                delete this->name;
+            }
+            if(this->phone != NULL){
+                delete this->phone;
+            }
+            if(this->email != NULL){
+                delete this->email;
+            }
+            if(this->age != NULL){
+                delete this->age;
+            }
+            if(this->shift != NULL){
+                delete this->shift;
+            }
+            if(this->active != NULL){
+                delete this->active;
+            }
         }
 };
 
