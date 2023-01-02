@@ -1,4 +1,4 @@
-// Recursive class in c++ OOP concept...
+// Recursive class in c++ OOP concept...use constructor...
 
 #include <iostream>
 #include <string>
@@ -53,3 +53,4 @@ int main() {
 
 return 0;
 }
+
