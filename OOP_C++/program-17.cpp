@@ -64,7 +64,11 @@ int main() {
     "Diesel engine", "Bangladesh", "BW172334", "02-02-2023");
 
     myCar.displayData();
+    cout<<"\n";
+    CarOwner hisCar("The Parado", "Toyota", 5, "Light gray", "Allen Shovo",
+    "Diesel engine", "Bangladesh", "BXQ892398", "02-02-2022");
 
+    hisCar.displayData();
 return 0;
 }
 
