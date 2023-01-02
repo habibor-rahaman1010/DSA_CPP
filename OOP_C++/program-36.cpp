@@ -70,7 +70,7 @@ int main() {
 */
     vector<Student>s;
     for(int i = 0; i < 5; i++){
-        s.push_back(Student(i + 1, "Habibor Rahaman", "01768280237", "hbaibor.rahaman1010@gmail.com", 23, "Morning", true));
+        s.push_back(Student(5 - i, "Habibor Rahaman", "01768280237", "hbaibor.rahaman1010@gmail.com", 23, "Morning", true));
     }
 
     for(int i = 0; i < s.size(); i++){
