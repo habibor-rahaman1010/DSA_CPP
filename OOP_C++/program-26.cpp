@@ -1,0 +1,3 @@
+//inheritance in c++ program...
+
+#include <iostream>
