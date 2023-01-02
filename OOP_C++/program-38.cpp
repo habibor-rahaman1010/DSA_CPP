@@ -37,6 +37,9 @@ class Admin : public User {
             this->designation = designation;
             this->destination = destination;
         }
+        bool operator < (Admin s) {
+            return this->i
+        }
 };
 
 bool comp(Admin a, Admin b) {
