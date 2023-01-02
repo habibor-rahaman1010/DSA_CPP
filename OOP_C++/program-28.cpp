@@ -41,6 +41,7 @@ class Student {
             this->color = color;
         }
 
+        //Empty constructor...
         Student() {
 
         }
