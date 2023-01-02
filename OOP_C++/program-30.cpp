@@ -27,28 +27,41 @@ class Student {
             cout<<"Shift: " <<this->shift->typeString <<"\n";
             cout<<"Active: " <<this->active->typeBool <<"\n";
         }
+
+        //This is my empty constructor in program...
+        Student() {
+
+        }
+
+         //This is my constructor in program...
+        Student(int id, string name, string phone, string email, int age, string shift, bool active) {
+            this->id = new Student;
+            this->id->typeInt = id;
+
+            this->name = new Student;
+            this->name->typeString = name;
+
+            this->phone = new Student;
+            this->phone->typeString = phone;
+
+            this->email = new Student;
+            this->email->typeString = email;
+
+            this->age = new Student;
+            this->age->typeInt = age;
+
+            this->shift = new Student;
+            this->shift->typeString = shift;
+
+            this->active = new Student;
+            this->active->typeBool = active;
+        }
+
+        //This is my destructor in program...
 };
 
 int main() {
-
-    Student s1;
-    s1.id = new Student;
-    s1.name = new Student;
-    s1.phone = new Student;
-    s1.email = new Student;
-    s1.age = new Student;
-    s1.shift = new Student;
-    s1.active = new Student;
-
-
-    s1.id->typeInt = 14;
-    s1.name->typeString = "Habibor Rahaman";
-    s1.phone->typeString = "01768280237";
-    s1.email->typeString = "hbaibor.rahaman1010@gmail.com";
-    s1.age->typeInt = 23;
-    s1.shift->typeString = "Morning";
-    s1.active->typeBool = true;
-
+    Student s1(144369, "Habibor Rahaman", "01768280237", "hbaibor.rahaman1010@gmail.com", 23, "Morning", true);
     s1.displayInformation();
 
 return 0;
