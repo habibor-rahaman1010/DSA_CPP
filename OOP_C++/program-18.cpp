@@ -4,10 +4,21 @@
 using namespace std;
 
 class Parent {
-    private:
+    protected:
         string parentName;
+};
+
+class Children : protected Parent {
+    protected:
+        string childrenName;
+};
+
+class GrandChildren : protected Children {
+    protected:
+        string grandChildrenName;
 
     public:
+        //parent name setter getter
         void setParentName(string parentName) {
             this->parentName = parentName;
         }
@@ -15,13 +26,8 @@ class Parent {
         string getParentName() {
             return this->parentName;
         }
-};
 
-class Children : Parent {
-    private:
-        string childrenName;
-
-    public:
+        //children name setter getter
         void setChildrenName(string childrenName) {
             this->childrenName = childrenName;
         }
@@ -29,13 +35,8 @@ class Children : Parent {
         string getChildrenName() {
             return this->childrenName;
         }
-};
 
-class GrandChildren : Children {
-    private:
-        string grandChildrenName;
-
-    public:
+        //grand children name setter getter
         void setGrandChildrenName(string grandChildrenName) {
             this->grandChildrenName = grandChildrenName;
         }
@@ -43,18 +44,20 @@ class GrandChildren : Children {
         string getGrandChildrenName() {
             return this->grandChildrenName;
         }
-
-        //This is my constructor...
-        GrandChildren() {
-
-        }
 };
 
 
 
 int main() {
+    GrandChildren habib;
 
+    habib.setParentName("Kiron Bapary");
+    habib.setChildrenName("Habibor Rahaman");
+    habib.setGrandChildrenName("Anayet Ahmed");
 
+    cout<<"Parent Name: " <<habib.getParentName() <<"\n";
+    cout<<"Children Name: " <<habib.getChildrenName() <<"\n";
+    cout<<"Grand Children Name: " <<habib.getGrandChildrenName()<<"\n";
 
 return 0;
 }
