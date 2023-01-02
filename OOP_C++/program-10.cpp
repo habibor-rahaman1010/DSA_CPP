@@ -20,7 +20,9 @@ class Employe {
 };
 
 int main() {
-
+    Employe myObj;
+    myObj.setSalary(35685);
+    cout<<"Salary: " <<myObj.getSalary() <<"\n";
 
 return 0;
 }
