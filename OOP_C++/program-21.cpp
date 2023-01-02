@@ -27,7 +27,14 @@ int main() {
     r1.height = 4;
     r1.width = 8;
     cout<<"Area: " <<r1.calculateArea() <<"\n";
-    cout<<"Peremeter: " <<r1.calculatePeremeter() <<"\n";
+    cout<<"Perimeter: " <<r1.calculatePeremeter() <<"\n";
+    cout<<"\n";
+
+    Rectangle r2;
+    r2.height = 8;
+    r2.width = 12;
+    cout<<"Area: " <<r2.calculateArea() <<"\n";
+    cout<<"Perimeter: " <<r2.calculatePeremeter() <<"\n";
 
 return 0;
 }
