@@ -7,12 +7,13 @@ using namespace std;
 
 class Cuboid {
     private:
+        int id;
         int length;
         int width;
         int height;
 
     public:
-        int id;
+
 
         Cuboid() {
 
@@ -31,11 +32,11 @@ class Cuboid {
         void getSurfaceArea() {
             cout<< ((2 * this->length * this->width) + (2 * this->length * this->height) + (2 * this->height * this->width)) <<"\n";
         }
-};
 
-bool comp(Cuboid a, Cuboid b) {
-    return a.id > b.id;
-}
+        bool operator < (Cuboid s){
+            return this->id > s.id;
+        }
+};
 
 
 int main() {
@@ -50,10 +51,11 @@ int main() {
     }
 
     cout<<"________________After sorting_____________ \n";
-    sort(cub.begin(), cub.end(), comp);
+    sort(cub.begin(), cub.end());
     for(int i = 0; i < 5; i++){
         cub[i].getVolume();
     }
 
 return 0;
 }
+
