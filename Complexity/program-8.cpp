@@ -9,6 +9,8 @@ using namespace std;
 */
 
 int called = 0;
+int save[1000];
+
 int fibo(int n) {
     if(n == 0) {
         return 0;
@@ -16,11 +18,16 @@ int fibo(int n) {
     if(n == 1) {
         return 1;
     }
+    if(save[n] != 0){
+        return save[n];
+    }
 
     int x = fibo(n - 1);
     called++;
     int y = fibo(n - 2);
     called++;
+    save[n] = (x + y);
+
     return (x + y);
 }
 
@@ -35,3 +42,4 @@ int main() {
 
 return 0;
 }
+
