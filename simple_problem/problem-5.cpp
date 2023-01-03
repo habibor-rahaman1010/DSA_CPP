@@ -31,10 +31,28 @@ int main() {
         concatAra[i + n1] = ara2[i];
     }
 
-    for(int i = 0; i < concatAra.size(); i++){
-        cout<<concatAra[i] <<" ";
+    int n = concatAra.size();
+    //remove duplicate element remove functionality..
+    for(int i = 0; i < n; i++){
+        for(int j = i + 1; j < n;) {
+            if(concatAra[i] == concatAra[j]){
+                for(int k = j; k < n - 1; k++){
+                    concatAra[k] = concatAra[k + 1];
+                }
+
+                n--;
+            }
+            else{
+                j++;
+            }
+        }
     }
+
+    cout<<"\n";
+    for(int i = 0; i < n; i++){
+        cout<<concatAra[i]<<" ";
+    }
+
 
 return 0;
 }
-
