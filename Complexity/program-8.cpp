@@ -9,7 +9,7 @@ using namespace std;
 */
 
 int called = 0;
-int save[1000];
+long long int save[1000];
 
 int fibo(int n) {
     if(n == 0) {
@@ -22,9 +22,9 @@ int fibo(int n) {
         return save[n];
     }
 
-    int x = fibo(n - 1);
+    long long int x = fibo(n - 1);
     called++;
-    int y = fibo(n - 2);
+    long long int y = fibo(n - 2);
     called++;
     save[n] = (x + y);
 
@@ -32,11 +32,11 @@ int fibo(int n) {
 }
 
 int main() {
-    int n;
+    long long int n;
     cout<<"Enter the value of n: ";
     cin>>n;
 
-    int fib = fibo(n);
+    long long int fib = fibo(n);
     cout<<"Fibonacci is: " <<fib <<"\n";
     cout<<"Fibonacci function called: " <<called <<"\n";
 
