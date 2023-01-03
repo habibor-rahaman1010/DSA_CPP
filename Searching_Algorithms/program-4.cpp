@@ -19,7 +19,7 @@ int main() {
     bool flag = 0;
     while(low <= heigh){
         int mid = (low + heigh) / 2;
-        cout<<"Low = " <<low <<"Height = " <<heigh <<"Mid = " <<mid <<"\n";
+        cout<<"Low = " <<low <<" " <<"Height = " <<heigh <<" " <<"Mid = " <<mid <<"\n";
 
         if(ara[mid] == k){
             cout<<"Yes! \n";
