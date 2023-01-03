@@ -2,8 +2,12 @@
 
 #include <iostream>
 #include <vector>
-
 using namespace std;
+
+/*
+    Time complexity O(n)
+    space complexity O(n)
+*/
 
 int main() {
     int n, k;

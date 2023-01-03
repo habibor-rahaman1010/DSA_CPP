@@ -1,9 +1,13 @@
-//Linear search in c++ program...all posiible
+//Linear search in c++ program...all possible
 
 #include <iostream>
 #include <vector>
-
 using namespace std;
+
+/*
+    Time complexity O(n)
+    space complexity O(n)
+*/
 
 int main() {
     int n, k;
