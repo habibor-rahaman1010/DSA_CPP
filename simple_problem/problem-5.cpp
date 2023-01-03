@@ -53,6 +53,5 @@ int main() {
         cout<<concatAra[i]<<" ";
     }
 
-
 return 0;
 }
