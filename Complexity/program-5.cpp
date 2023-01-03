@@ -26,7 +26,7 @@ int main() {
     for(int i = 0; i < ara.size(); i++){
         string ans = "NO \n";
 
-        for(int j = 0; j < ara.size(); j++){
+        for(int j = i + 1; j < ara.size(); j++){
             if(i == j){
                 continue;
             }
@@ -39,4 +39,5 @@ int main() {
 
 return 0;
 }
+
 
