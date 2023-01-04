@@ -1,9 +1,14 @@
-//Insertion sort ascending order in c++ program...
+//Insertion sort descending order in c++ program...
 
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
+
+/*
+    Time complexity On(n^2)
+    Space complexity O(n)
+*/
 
 int main() {
     int n;
@@ -18,10 +23,8 @@ int main() {
     for(int i = 1; i < ara.size(); i++){
         int index = i;
         while(index >= 1){
-            if(ara[index - 1] > ara[index]){
-                temp = ara[index - 1];
-                ara[index - 1] = ara[index];
-                ara[index] = temp;
+            if(ara[index - 1] < ara[index]){
+                swap(ara[index - 1], ara[index]);
                 index--;
             }
             else{
@@ -40,3 +43,4 @@ int main() {
 
 return 0;
 }
+

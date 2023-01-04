@@ -1,0 +1,3 @@
+//prime number find out use sieve method and find complexity...
+
+#include <iosd>
