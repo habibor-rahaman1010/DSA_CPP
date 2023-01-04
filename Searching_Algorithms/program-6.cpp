@@ -30,7 +30,7 @@ class Array {
         }
 
         //Time complexity O(1)
-        void Push(int x){
+        void Push_back(int x){
             if(this->cap == this->siz){
                 increase_size();
             }
@@ -38,7 +38,7 @@ class Array {
             this->siz++;
         }
 
-        //Time complexity O(1)
+        //Time complexity O(siz)
         void Insert(int position, int x) {
             if(this->cap == this->siz){
                 increase_size();
@@ -48,6 +48,27 @@ class Array {
             }
             this->ara[position] = x;
             this->siz++;
+        }
+
+        //Time complexity O(siz)
+        void Pop_back(){
+            if(this->siz == 0){
+                cout<<"Current size is 0 \n";
+            }
+            this->siz--;
+        }
+
+        //Time complexity O(siz)
+        void Erase(int position){
+            if(position >= this->siz){
+                cout<<position <<" Position does not exist \n";
+                return;
+            }
+            for(int i = position + 1; i < this->siz; i++){
+                this->ara[i - 1] = this->ara[i];
+                //swap(this->ara[i - 1], this->ara[i]);
+            }
+            this->siz--;
         }
 
         //Time complexity O(siz)
@@ -77,13 +98,16 @@ class Array {
 
 int main() {
     Array a;
-    a.Push(12);
-    a.Push(14);
-    a.Push(15);
-    a.Push(21);
-    a.Push(24);
-    a.Push(11);
-    a.Insert(5, 7);
+    a.Push_back(12);
+    a.Push_back(14);
+    a.Push_back(15);
+    a.Push_back(21);
+    a.Push_back(24);
+    a.Push_back(11);
+    a.Insert(2, 7);
+    a.Pop_back();
+    a.Pop_back();
+    a.Erase(1);
     a.Print();
     cout<<a.getSize() <<"\n";
 
