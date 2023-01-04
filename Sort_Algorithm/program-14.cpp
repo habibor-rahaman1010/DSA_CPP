@@ -1,4 +1,4 @@
-//bubble sort ascending order in c++ program...
+//bubble sort descending order in c++ program...
 
 #include <iostream>
 #include <vector>
@@ -15,14 +15,11 @@ int main() {
         cin>>ara[i];
     }
 
-    int tamp;
     for(int step = 0; step < ara.size(); step++){
         int last = ara.size() - 1 - step;
         for(int j = 0; j <= last - 1; j++){
-            if(ara[j] > ara[j + 1]){
-                tamp = ara[j];
-                ara[j] = ara[j + 1];
-                ara[j + 1] = tamp;
+            if(ara[j] < ara[j + 1]){
+                swap(ara[j], ara[j + 1]);
             }
         }
     }
@@ -35,3 +32,4 @@ int main() {
     cin.tie(0);
 return 0;
 }
+

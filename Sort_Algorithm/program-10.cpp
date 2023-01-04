@@ -15,14 +15,11 @@ int main() {
         cin>>ara[i];
     }
 
-    int tamp;
     for(int step = 0; step < ara.size(); step++){
         int last = ara.size() - 1 - step;
         for(int j = 0; j <= last - 1; j++){
             if(ara[j] > ara[j + 1]){
-                tamp = ara[j];
-                ara[j] = ara[j + 1];
-                ara[j + 1] = tamp;
+                swap(ara[j], ara[j + 1]);
             }
         }
     }
