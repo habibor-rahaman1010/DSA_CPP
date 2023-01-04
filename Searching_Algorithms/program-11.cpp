@@ -14,14 +14,9 @@ int main() {
         cin>>ara[i];
     }
 
-    int tamp;
-    for(int i = 0; i < ara.size(); i++){
-        for(int j = 0; j < ara.size(); j++){
-            if(ara[i] < ara[j]){
-                tamp = ara[i];
-                ara[i] = ara[j];
-                ara[j] = tamp;
-            }
+    for(int i = 0, j = 0; i < ara.size(); i++, j++){
+        if(ara[i] < ara[j]){
+            swap(ara[i], ara[j]);
         }
     }
 
@@ -31,3 +26,4 @@ int main() {
 
 return 0;
 }
+
