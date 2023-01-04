@@ -18,9 +18,7 @@ int main() {
     for(int i = 0; i < ara.size(); i++){
         for(int j = 0; j < ara.size() - 1; j++){
             if(ara[j] > ara[j + 1]){
-               tamp = ara[j];
-               ara[j] = ara[j + 1];
-               ara[j + 1] = tamp;
+                swap(ara[j + 1], ara[j]);
             }
         }
     }
@@ -31,3 +29,4 @@ int main() {
 
 return 0;
 }
+
