@@ -1,3 +1,4 @@
+
 //Insertion sort in c++ program...
 
 #include <iostream>
@@ -19,9 +20,7 @@ int main() {
         int index = i;
         while(index >= 1){
             if(ara[index - 1] > ara[index]){
-                temp = ara[index - 1];
-                ara[index - 1] = ara[index];
-                ara[index] = temp;
+                swap(ara[index - 1], ara[index]);
                 index--;
             }
             else{
