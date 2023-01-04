@@ -1,4 +1,4 @@
-//sort in c++ program...
+//sort in c++ program descending order...
 
 #include <iostream>
 #include <vector>
@@ -14,9 +14,14 @@ int main() {
         cin>>ara[i];
     }
 
-    for(int i = 0, j = 0; i < ara.size(); i++, j++){
-        if(ara[i] < ara[j]){
-            swap(ara[i], ara[j]);
+    int tamp;
+    for(int i = 0; i < ara.size(); i++){
+        for(int j = 0; j < ara.size(); j++){
+            if(ara[i] > ara[j]){
+                tamp = ara[i];
+                ara[i] = ara[j];
+                ara[j] = tamp;
+            }
         }
     }
 
@@ -26,4 +31,3 @@ int main() {
 
 return 0;
 }
-
