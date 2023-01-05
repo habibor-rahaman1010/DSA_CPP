@@ -10,6 +10,16 @@ using namespace std;
     space complexity O(n)
 */
 
+int linearSearch(vector<int>ara, int q) {
+
+    for(int i = 1; i < ara.size(); i++){
+        if(ara[i] == q){
+            return i;
+        }
+    }
+    return -1;
+}
+
 int main() {
     int n, k;
     cout<<"Enter the value of (n and k): ";
@@ -20,18 +30,12 @@ int main() {
         cin>>ara[i];
     }
 
-    sort(ara.begin(), ara.end());
-    bool flag = 0;
-    for(int i = 1; i < ara.size(); i++){
-        if(ara[i] == k){
-            cout<<"Yes! \n";
-            flag = 1;
-            break;
-        }
+    int index = linearSearch(ara, k);
+    if(index == -1){
+        cout<<"Not found! " <<index <<"\n";
     }
-
-    if(!flag){
-        cout<<"No! \n";
+    else{
+        cout<<"Found it! " <<ara[index] <<"\n";
     }
 
     ios_base::sync_with_stdio(0);
@@ -39,3 +43,4 @@ int main() {
 
 return 0;
 }
+
