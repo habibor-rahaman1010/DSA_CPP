@@ -1,4 +1,4 @@
-// Linear search algorithm applying in c++ program...
+// Binary search algorithm applying in c++ program...
 
 #include <iostream>
 #include <vector>
@@ -16,6 +16,20 @@ int main() {
         cin>>ara[i];
     }
 
+    int low = 0;
+    int heigh = ara.size() - 1;
+
+    while(low <= heigh){
+        int mid = (low + heigh) / 2;
+
+        if(ara[mid] == k){
+            cout<<"Yes! \n";
+            break;
+        }
+        if(ara[mid] > ){
+
+        }
+    }
 
 
 
