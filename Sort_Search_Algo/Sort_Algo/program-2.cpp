@@ -1,5 +1,6 @@
 //Selection sort ascending order algorithm applying in c++ program...
 
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,9 +15,7 @@ void Selection_Srot(vector<int>ara) {
                 min_index = j;
             }
         }
-        temp = ara[min_index];
-        ara[min_index] = ara[step];
-        ara[step] = temp;
+        swap(ara[min_index], ara[step]);
     }
 
     for(int i = 0 ; i < ara.size(); i++){
