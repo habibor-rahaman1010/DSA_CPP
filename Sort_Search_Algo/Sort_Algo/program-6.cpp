@@ -10,9 +10,7 @@ void BubbleSort(vector<int>ara) {
     for(int i = 0; i < ara.size(); i++){
         for(int j = i + 1; j < ara.size(); j++){
             if(ara[i] > ara[j]){
-                temp = ara[i];
-                ara[i] = ara[j];
-                ara[j] = temp;
+                swap(ara[i], ara[j]);
             }
         }
     }
@@ -38,3 +36,4 @@ int main() {
 
 return 0;
 }
+

@@ -1,4 +1,4 @@
-//bubble sort algorithm ascending order in c++ program...
+//bubble sort algorithm descending order in c++ program...
 
 #include <iostream>
 #include <vector>
@@ -9,10 +9,8 @@ void BubbleSort(vector<int>ara) {
     int temp;
     for(int i = 0; i < ara.size(); i++){
         for(int j = i + 1; j < ara.size(); j++){
-            if(ara[i] > ara[j]){
-                temp = ara[i];
-                ara[i] = ara[j];
-                ara[j] = temp;
+            if(ara[i] < ara[j]){
+                swap(ara[i], ara[j]);
             }
         }
     }
