@@ -37,6 +37,13 @@ vector<int> Merge_Sort(vector<int>ara) {
         }
     }
 
+    while(index1 < sorted1.size()){
+        merged_sorted[k++] = sorted1[index1++];
+    }
+
+     while(index2 < sorted2.size()){
+        merged_sorted[k++] = sorted1[index2++];
+    }
 }
 
 int main() {
