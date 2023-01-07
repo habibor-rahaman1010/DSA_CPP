@@ -10,8 +10,8 @@ vector<int> Merge_Sort(vector<int>ara) {
     }
 
     int mid = (ara.size() / 2);
-    vector<int>left_side(mid);
-    vector<int>right_side(ara.size() - mid);
+    vector<int>left_side;
+    vector<int>right_side;
 
     for(int i = 0; i < mid; i++){
         left_side.push_back(ara[i]);
@@ -28,22 +28,32 @@ vector<int> Merge_Sort(vector<int>ara) {
     int index1 = 0;
     int index2 = 0;
     int k = 0;
+
     while(index1 < sorted1.size() && index2 < sorted2.size()){
         if(sorted1[index1] <= sorted2[index2]){
-            merged_sorted[k++] = sorted1[index1++];
+            merged_sorted.push_back(sorted1[index1]);
+            index1++;
+            k++;
         }
         else{
-            merged_sorted[k++] = sorted2[index2++];
+            merged_sorted.push_back(sorted2[index2]);
+            index2++;
+            k++;
         }
     }
 
     while(index1 < sorted1.size()){
-        merged_sorted[k++] = sorted1[index1++];
+        merged_sorted.push_back(sorted1[index1]);
+        index1++;
+        k++;
     }
 
      while(index2 < sorted2.size()){
-        merged_sorted[k++] = sorted1[index2++];
+        merged_sorted.push_back(sorted2[index2]);
+        index2++;
+        k++;
     }
+    return merged_sorted;
 }
 
 int main() {
@@ -61,6 +71,8 @@ int main() {
         cout<<vect[i] <<" ";
     }
 
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
 
 return 0;
 }
