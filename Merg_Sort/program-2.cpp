@@ -7,3 +7,4 @@ int main() {
     cout << v[7] << '\n';
     return 0;
 }
+
