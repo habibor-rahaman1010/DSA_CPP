@@ -29,8 +29,8 @@ int main() {
     }
 
     vector<int>vect = Insertion_Sort(ara);
-    for(int i = 0; i < ara.size(); i++){
-        cout<<ara[i] <<" ";
+    for(int i = 0; i < vect.size(); i++){
+        cout<<vect[i] <<" ";
     }
 
 return 0;
