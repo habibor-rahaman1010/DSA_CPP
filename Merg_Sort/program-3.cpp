@@ -10,7 +10,7 @@ vector<int> Merge_Sort(vector<int>ara) {
         return ara;
     }
 
-    int mid = ara.size() / 2;
+    int mid = (ara.size() / 2);
     vector<int>left;
     for(int i = 0; i < mid; i++){
         left.push_back(ara[i]);
@@ -23,6 +23,7 @@ vector<int> Merge_Sort(vector<int>ara) {
 
     vector<int>sorted_A = Merge_Sort(left);
     vector<int>sorted_B = Merge_Sort(right);
+
     vector<int>sorted_merge;
     int idx1 = 0;
     int idx2 = 0;
@@ -45,7 +46,7 @@ vector<int> Merge_Sort(vector<int>ara) {
             idx2++;
         }
     }
-    return ara;
+    return sorted_merge;
 }
 
 int main() {
