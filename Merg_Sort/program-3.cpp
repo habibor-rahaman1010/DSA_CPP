@@ -27,21 +27,21 @@ vector<int> Merge_Sort(vector<int>ara) {
     int idx1 = 0;
     int idx2 = 0;
 
-    for(int i = 0 ; i < ara.size(); i++){
+    for(int i = 0; i < ara.size(); i++){
         if(idx1 == sorted_A.size()){
-            sorted_merge[i] = sorted_B[idx2];
+            sorted_merge.push_back(sorted_B[idx2]);
             idx2++;
         }
         else if(idx2 == sorted_B.size()){
-            sorted_merge[i] = sorted_A[idx1];
+            sorted_merge.push_back(sorted_A[idx1]);
             idx1++;
         }
-        if(sorted_A[idx1] < sorted_B[idx2]){
-            sorted_merge[i] = sorted_A[idx1];
+        else if(sorted_A[idx1] < sorted_B[idx2]){
+            sorted_merge.push_back(sorted_A[idx1]);
             idx1++;
         }
         else{
-            sorted_merge[i] = sorted_B[idx2];
+            sorted_merge.push_back(sorted_B[idx2]);
             idx2++;
         }
     }
