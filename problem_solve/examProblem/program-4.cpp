@@ -1,70 +1,61 @@
-//Merge Sort algorithm applying in c++ program...
-
 #include <iostream>
-#include <vector>
+#include <algorithm>
 using namespace std;
 
-vector<int> Merge_Sort(vector<int>ara) {
-    if(ara.size() <= 1){
-        return ara;
-    }
+int mergeSort(int arr[], int temp[], int left, int right, int k)
+{
+    int mid, inv_count = 0;
+    if (right > left)
+    {
+        mid = (right + left) / 2;
 
-    int mid = (ara.size() / 2);
-    vector<int>vector1;
-    vector<int>vector2;
+        inv_count = mergeSort(arr, temp, left, mid, k);
+        inv_count += mergeSort(arr, temp, mid + 1, right, k);
 
-    for(int i = 0; i < mid; i++){
-        vector1.push_back(ara[i]);
-    }
+        int i = left, j = mid + 1, k = left;
+        int h = 0;
+        while (i <= mid && j <= right)
+        {
+            if (arr[i] <= arr[j])
+                temp[k++] = arr[i++];
+            else
+            {
+                temp[k++] = arr[j++];
+                h++;
 
-    for(int i = mid; i < ara.size(); i++){
-        vector2.push_back(ara[i]);
-    }
-
-    vector<int>sorted1 = Merge_Sort(vector1);
-    vector<int>sorted2 = Merge_Sort(vector2);
-
-    vector<int>merged_sorted;
-    int index1 = 0;
-    int index2 = 0;
-
-    for(int i = 0; i < ara.size(); i++){
-
-        if(index1 == sorted1.size()){
-            merged_sorted.push_back(sorted2[index2]);
-            index2++;
+                //counting the number of pairs
+                inv_count += (mid - i + 1);
+            }
         }
-        else if(index2 == sorted2.size()){
-            merged_sorted.push_back(sorted1[index1]);
-            index1++;
-        }
-        else if(sorted1[index1] < sorted2[index2]){
-            merged_sorted.push_back(sorted1[index1]);
-            index1++;
-        }
-        else{
-            merged_sorted.push_back(sorted2[index2]);
-            index2++;
-        }
+        cout<<h <<"\n";
+
+        while (i <= mid)
+            temp[k++] = arr[i++];
+
+        while (j <= right)
+            temp[k++] = arr[j++];
+
+        for (i = left; i <= right; i++)
+            arr[i] = temp[i];
     }
-    return merged_sorted;
+    return inv_count;
 }
 
-int main() {
-    int n;
-    cout<<"Enter the value of n: ";
-    cin>>n;
+int sumPairs(int arr[], int n, int k)
+{
+    int temp[n];
+    return mergeSort(arr, temp, 0, n - 1, k);
+}
 
-    vector<int>ara(n);
-    for(int i = 0; i < ara.size(); i++){
-        cin>>ara[i];
-    }
+int main()
+{
+    int n, k;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    cin >> k;
 
-    vector<int>vect = Merge_Sort(ara);
-    for(int i = 0; i < vect.size(); i++){
-        cout<<vect[i] <<" ";
-    }
-
-
-return 0;
+    cout << sumPairs(arr, n, k) << endl;
+    return 0;
 }
