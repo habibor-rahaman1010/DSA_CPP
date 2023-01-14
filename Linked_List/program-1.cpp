@@ -77,6 +77,17 @@ class LinkedList {
                 cout<<value <<" is found at index " <<-1 <<"\n";
             }
         }
+
+        //This is my destructor function...
+        public:
+        ~LinkedList(){
+            node* temp = head;
+            while(temp != NULL){
+                node* next = temp->next;
+                delete temp;
+                temp = next;
+            }
+        }
 };
 
 int main() {
