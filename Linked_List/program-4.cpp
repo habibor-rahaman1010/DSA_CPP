@@ -125,10 +125,33 @@ class LinkedList {
             if(head == NULL){
                 return;
             }
-
+            siz--;
             Node* a = head;
             head = a->next;
             delete a;
+        }
+
+        void DeleteAnyIndex(int index){
+            if(index < 0 || index > siz - 1){
+                cout<<"You can try invalid index delete!" <<"\n";
+                return;
+            }
+
+            if(index == 0){
+                DeletAtHead();
+                return;
+            }
+            siz--;
+            Node* a = head;
+            int current_index = 0;
+
+            while(current_index != index - 1){
+                a = a->next;
+                current_index++;
+            }
+            Node* b = a->next;
+            a->next = b->next;
+            delete b;
         }
 
 
@@ -158,6 +181,7 @@ int main() {
 
     l.InsertAnyIndex(1, 100);
     l.DeletAtHead();
+    l.DeleteAnyIndex(177);
 
     l.Traverse();
 
