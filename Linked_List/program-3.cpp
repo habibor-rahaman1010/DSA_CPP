@@ -78,6 +78,17 @@ class LinkedList {
             }
         }
 
+        //This is my destructor function...
+        public:
+        ~LinkedList(){
+            Node* temp = head;
+            while(temp != NULL){
+                Node* next = temp->next;
+                delete temp;
+                temp = next;
+            }
+        }
+
 };
 
 int main() {
