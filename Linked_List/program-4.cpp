@@ -12,9 +12,11 @@ class Node {
 class LinkedList {
     public:
         Node* head;
+        int siz;
 
         LinkedList() {
             head = NULL;
+            siz = 0;
         }
 
         Node* CreateNewNode(int value) {
@@ -26,6 +28,7 @@ class LinkedList {
 
         //Insert data at head in linked list...
         void InsertAtHead(int value) {
+            siz++;
             Node* a = CreateNewNode(value);
             if(head == NULL){
                 head = a;
@@ -79,6 +82,7 @@ class LinkedList {
         }
 
         //get size linked list...
+
         int getSize(){
             Node* a = head;
             int cnt = 0;
@@ -87,6 +91,10 @@ class LinkedList {
                 a = a->next;
             }
             return cnt;
+        }
+
+        int getLength() {
+            return siz;
         }
 
 
@@ -122,6 +130,7 @@ int main() {
     l.SearchAllValue(10);
 
     cout<<"Linked list size: " <<l.getSize() <<"\n";
+    cout<<"Linked list length: " <<l.getLength() <<"\n";
 
 
 return 0;
