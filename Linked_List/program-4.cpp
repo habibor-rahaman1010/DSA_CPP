@@ -120,6 +120,17 @@ class LinkedList {
             a->next = newNode;
         }
 
+        //delete element at head...
+        void DeletAtHead(){
+            if(head == NULL){
+                return;
+            }
+
+            Node* a = head;
+            head = a->next;
+            delete a;
+        }
+
 
         //This is my destructor function...
         public:
@@ -145,7 +156,8 @@ int main() {
     l.InsertAtHead(15);
     l.InsertAtHead(32);
 
-    l.InsertAnyIndex(18, 100);
+    l.InsertAnyIndex(1, 100);
+    l.DeletAtHead();
 
     l.Traverse();
 
