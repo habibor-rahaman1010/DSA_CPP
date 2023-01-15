@@ -97,11 +97,18 @@ class LinkedList {
             return siz;
         }
 
+        //new data insert any index in linked list...
         void InsertAnyIndex(int index, int value) {
+            if(index < 0 || index > siz){
+                cout<<index <<" is invalid index!" <<"\n";
+                return;
+            }
+
             if(index == 0){
                 InsertAtHead(value);
                 return;
             }
+            siz++;
             Node* a = head;
             int current_index = 0;
             while(current_index != index - 1){
@@ -138,7 +145,7 @@ int main() {
     l.InsertAtHead(15);
     l.InsertAtHead(32);
 
-    l.InsertAnyIndex(1, 100);
+    l.InsertAnyIndex(18, 100);
 
     l.Traverse();
 
