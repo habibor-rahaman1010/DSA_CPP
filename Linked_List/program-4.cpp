@@ -138,6 +138,8 @@ int main() {
     l.InsertAtHead(15);
     l.InsertAtHead(32);
 
+    l.InsertAnyIndex(1, 100);
+
     l.Traverse();
 
     cout<<"15 found it index " <<l.SearchDistinctValue(15) <<"\n \n";
