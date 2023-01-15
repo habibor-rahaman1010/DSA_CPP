@@ -97,6 +97,22 @@ class LinkedList {
             return siz;
         }
 
+        void InsertAnyIndex(int index, int value) {
+            if(index == 0){
+                InsertAtHead(value);
+                return;
+            }
+            Node* a = head;
+            int current_index = 0;
+            while(current_index != index - 1){
+                a = a->next;
+                current_index++;
+            }
+            Node* newNode = CreateNewNode(value);
+            newNode->next = a->next;
+            a->next = newNode;
+        }
+
 
         //This is my destructor function...
         public:
