@@ -101,8 +101,9 @@ public:
     //delete item at head in linked list...
     void DeleteAtHead() {
         Node* a = head;
-        a->next = head;
-        delete a;
+        if(a == head){
+            a->next = head;
+        }
     }
 
     //get linked list length...
