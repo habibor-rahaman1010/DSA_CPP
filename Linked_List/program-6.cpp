@@ -28,6 +28,10 @@ Node* InsertAtHead(Node* head, int value) {
 
 void Print_linked_List(Node* head){
     Node* a = head;
+    while(a != NULL){
+       cout<<a->Data <<" ";
+       a = a->Next;
+    }
 }
 
 int main() {
@@ -37,10 +41,8 @@ int main() {
     head = InsertAtHead(head, 30);
     head = InsertAtHead(head, 40);
 
-    while(head != NULL){
-       cout<<head->Data <<" ";
-       head = head->Next;
-    }
+    Print_linked_List(head);
+
 return 0;
 }
 

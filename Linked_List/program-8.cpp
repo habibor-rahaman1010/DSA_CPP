@@ -15,19 +15,20 @@ public:
 };
 
 //insert at tail in linked list...
-void InsetAtTail(Node* &head, int item) {
+Node* InsetAtTail(Node* head, int item) {
     Node* temp = head;
     Node* new_node = new Node(item);
 
     if(head == NULL){
        head = new_node;
-       return;
+       return head;
     }
 
     while(temp->next != NULL){
         temp = temp->next;
     }
     temp->next = new_node;
+    return head;
 }
 
 //Traverse the linked list...
@@ -41,7 +42,7 @@ void Print_linked_List(Node* head) {
 
 int main() {
     Node* head = NULL;
-    InsetAtTail(head, 10);
+    head = InsetAtTail(head, 10);
     InsetAtTail(head, 20);
     InsetAtTail(head, 30);
     InsetAtTail(head, 40);
@@ -51,3 +52,4 @@ int main() {
 
 return 0;
 }
+
