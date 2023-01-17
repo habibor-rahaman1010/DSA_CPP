@@ -108,6 +108,22 @@ public:
         delete a;
     }
 
+    //delete item at tail in linked list...
+    void DeleteAtTail() {
+        if(head == NULL){
+            return;
+        }
+
+        Node* a = head;
+        Node* prv = NULL;
+        while(a->next != NULL) {
+            prv = a;
+            a = a->next;
+        }
+        delete a;
+        prv->next = NULL;
+    }
+
     //get linked list length...
     int getLength() {
         Node* a = head;
@@ -148,6 +164,7 @@ int main() {
     l.InsertAtAnyIndex(5, 21);
 
     l.DeleteAtHead();
+    //l.DeleteAtTail();
 
     l.Traverse(); cout<<"\n";
 
