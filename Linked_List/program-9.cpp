@@ -61,6 +61,20 @@ public:
         return -1;
     }
 
+    void SearchAllItem(int item) {
+        Node* a = head;
+        int index = 0;
+        bool flag = false;
+        while(a != NULL) {
+            if(a->data == item){
+                cout<<a->data <<" found at index: " <<index <<"\n";
+                flag = true;
+            }
+            a = a->next;
+            index++;
+        }
+
+    }
 
 
 
@@ -81,15 +95,22 @@ int main() {
     l.InsertAtHead(10);
     l.InsertAtHead(13);
     l.InsertAtHead(15);
+    l.InsertAtHead(22);
 
     l.InsertAtTail(22);
     l.InsertAtTail(18);
     l.InsertAtTail(14);
+    l.InsertAtTail(22);
 
     l.Traverse(); cout<<"\n";
 
     cout<<"18 found at index: " <<l.SearchItem(18) <<"\n";
-    cout<<"99 found at index: " <<l.SearchItem(99) <<"\n";
+    cout<<"99 found at index: " <<l.SearchItem(99) <<"\n \n";
+
+    l.SearchAllItem(22);
+    l.SearchAllItem(10);
+    l.SearchAllItem(78);
+
 
 
 
