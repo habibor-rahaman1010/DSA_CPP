@@ -98,6 +98,9 @@ public:
         }
     }
 
+    //delete item at head in linked list...
+
+
     //get linked list length...
     int getLength() {
         Node* a = head;
