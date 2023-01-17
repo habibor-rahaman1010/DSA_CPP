@@ -73,7 +73,9 @@ public:
             a = a->next;
             index++;
         }
-
+        if(!flag){
+           cout<<item <<" not found at index: " <<-1 <<"\n";
+        }
     }
 
 
