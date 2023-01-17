@@ -14,6 +14,14 @@ public:
     }
 };
 
+//insert at tail in linked list...
+void InsetAtTail(Node* head) {
+    Node* a = head;
+
+    while(){
+
+    }
+}
 
 
 int main() {
