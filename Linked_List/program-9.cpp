@@ -99,7 +99,11 @@ public:
     }
 
     //delete item at head in linked list...
-
+    void DeleteAtHead() {
+        Node* a = head;
+        a->next = head;
+        delete a;
+    }
 
     //get linked list length...
     int getLength() {
@@ -139,6 +143,8 @@ int main() {
 
     l.InsertAtAnyIndex(1, 7);
     l.InsertAtAnyIndex(5, 21);
+
+    l.DeleteAtHead();
 
     l.Traverse(); cout<<"\n";
 
