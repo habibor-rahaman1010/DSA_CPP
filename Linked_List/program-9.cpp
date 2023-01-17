@@ -135,7 +135,7 @@ public:
         }
         Node* a = head;
         int current_index = 0;
-        while(current_index != index){
+        while(current_index != index - 1){
             a = a->next;
             current_index++;
         }
@@ -186,7 +186,7 @@ int main() {
     l.DeleteAtHead();
     l.DeleteAtTail();
 
-    //l.DeleteAtAnyIndex(2);
+    l.DeleteAtAnyIndex(2);
 
     l.Traverse(); cout<<"\n";
 
