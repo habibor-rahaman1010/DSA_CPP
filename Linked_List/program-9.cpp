@@ -100,10 +100,12 @@ public:
 
     //delete item at head in linked list...
     void DeleteAtHead() {
-        Node* a = head;
-        if(a == head){
-            a->next = head;
+        if(head == NULL){
+            return;
         }
+        Node* a = head;
+        head = a->next;
+        delete a;
     }
 
     //get linked list length...
