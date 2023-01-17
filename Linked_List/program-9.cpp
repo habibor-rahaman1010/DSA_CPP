@@ -47,6 +47,26 @@ public:
         temp->next = a;
     }
 
+    //Insert any index in linked list...
+    void InsertAtAnyIndex(int index, int value) {
+        if(index < 0 || index > getLength()){
+
+        }
+        if(index == 0){
+            InsertAtHead(value);
+            return;
+        }
+        Node* a = head;
+        int current_index = 0;
+        while(current_index != index - 1){
+            a = a->next;
+            current_index++;
+        }
+        Node* newNode = Create_Node(value);
+        newNode->next = a->next;
+        a->next = newNode;
+    }
+
     //Search the value in linked list...
     int SearchItem(int item) {
         Node* a = head;
@@ -78,6 +98,16 @@ public:
         }
     }
 
+    //get linked list length...
+    int getLength() {
+        Node* a = head;
+        int countt = 0;
+        while(a != NULL) {
+            a = a->next;
+            countt++;
+        }
+        return countt;
+    }
 
 
     // Traverse the linked list...
@@ -104,6 +134,9 @@ int main() {
     l.InsertAtTail(14);
     l.InsertAtTail(22);
 
+    l.InsertAtAnyIndex(1, 7);
+    l.InsertAtAnyIndex(5, 21);
+
     l.Traverse(); cout<<"\n";
 
     cout<<"18 found at index: " <<l.SearchItem(18) <<"\n";
@@ -111,7 +144,8 @@ int main() {
 
     l.SearchAllItem(22);
     l.SearchAllItem(10);
-    l.SearchAllItem(78);
+    l.SearchAllItem(78);cout<<"\n";
+    cout<<"Length of linked list: " <<l.getLength() <<"\n";
 
 return 0;
 }
