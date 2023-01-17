@@ -113,8 +113,5 @@ int main() {
     l.SearchAllItem(10);
     l.SearchAllItem(78);
 
-
-
-
 return 0;
 }

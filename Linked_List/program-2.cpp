@@ -80,7 +80,6 @@ class LinkedList {
                 cout<<value <<" found at index: " <<-1 <<"\n";
             }
         }
-
 };
 
 int main() {
@@ -98,7 +97,6 @@ int main() {
     l.SearchAllValue(13);
     l.SearchAllValue(10);
     l.SearchAllValue(100);
-
 
 return 0;
 }
