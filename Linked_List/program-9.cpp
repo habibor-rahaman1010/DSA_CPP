@@ -124,6 +124,26 @@ public:
         prv->next = NULL;
     }
 
+    //delete at any index...
+    void DeleteAtAnyIndex(int index) {
+        if(index < 0 || index > getLength() - 1){
+            return;
+        }
+        if(index == 0){
+            DeleteAtHead();
+            return;
+        }
+        Node* a = head;
+        int current_index = 0;
+        while(current_index != index){
+            a = a->next;
+            current_index++;
+        }
+        Node* b = a->next;
+        a->next = b->next;
+        delete b;
+    }
+
     //get linked list length...
     int getLength() {
         Node* a = head;
@@ -165,6 +185,8 @@ int main() {
 
     l.DeleteAtHead();
     l.DeleteAtTail();
+
+    //l.DeleteAtAnyIndex(2);
 
     l.Traverse(); cout<<"\n";
 
