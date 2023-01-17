@@ -164,7 +164,7 @@ int main() {
     l.InsertAtAnyIndex(5, 21);
 
     l.DeleteAtHead();
-    //l.DeleteAtTail();
+    l.DeleteAtTail();
 
     l.Traverse(); cout<<"\n";
 
