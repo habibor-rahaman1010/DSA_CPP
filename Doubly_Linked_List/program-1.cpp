@@ -39,6 +39,20 @@ public:
         head = new_node;
     }
 
+    //Insert item at linked list any index...
+    void InsertAtAnyIndex(int index, int item) {
+        Node* new_node = Create_Node(item);
+
+        if(index == 0){
+            InsertAtHead(item);
+            return;
+        }
+        Node* a = head;
+        while(a->nxt != index - 1){
+            a->nxt;
+        }
+    }
+
     //Traverse the doubly linked list...
     void Traverse(){
         Node* a = head;
@@ -47,6 +61,17 @@ public:
             a = a->nxt;
         }
         cout<<"\n";
+    }
+
+    //This function return to the doubly linked list length...
+    int getLength() {
+        Node* a = head;
+        int countt = 0;
+        while(a != NULL){
+            a = a->nxt;
+            countt++;
+        }
+        return countt;
     }
 };
 
@@ -60,6 +85,7 @@ int main() {
     dl.InsertAtHead(50);
 
     dl.Traverse();
+    cout<<"Length is: " <<dl.getLength() <<"\n";
 
 return 0;
 }
