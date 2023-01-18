@@ -147,13 +147,20 @@ public:
     //Insert new item after a value...
     void InsertAfterValue(int value, int item){
         Node* a = head;
-        while(a->data == value){
+        while(a != NULL){
+            if(a->data == value){
+                break;
+            }
             a = a->next;
         }
-        Node* b = Create_Node(item);
+        if(a == NULL){
+            cout<<value <<" does not exit linked list \n";
+            return;
+        }
+        Node* new_node = Create_Node(item);
 
-        b->next = a->next;
-        a->next = b;
+        new_node->next = a->next;
+        a->next = new_node;
     }
 
     //get linked list length...
@@ -199,7 +206,7 @@ int main() {
     l.DeleteAtTail();
 
     l.DeleteAtAnyIndex(2);
-    l.InsertAfterValue(22, 33);
+    l.InsertAfterValue(10, 33);
 
     l.Traverse(); cout<<"\n";
 
