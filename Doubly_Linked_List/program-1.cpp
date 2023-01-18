@@ -42,6 +42,7 @@ public:
     //Insert item at linked list any index...
     void InsertAtAnyIndex(int index, int item) {
         if(index < 0 || index > getLength()){
+            cout<<index <<" index out of range in linked list! \n";
             return;
         }
 
@@ -98,7 +99,7 @@ int main() {
     dl.InsertAtHead(50);
 
     dl.InsertAtAnyIndex(1, 100);
-    dl.InsertAtAnyIndex(5, 200);
+    dl.InsertAtAnyIndex(7, 200);
 
     dl.Traverse();
     cout<<"Length is: " <<dl.getLength() <<"\n";
