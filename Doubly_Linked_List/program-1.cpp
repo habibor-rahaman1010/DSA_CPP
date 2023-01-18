@@ -46,6 +46,7 @@ public:
             cout<<a->data <<" ";
             a = a->nxt;
         }
+        cout<<"\n";
     }
 };
 
