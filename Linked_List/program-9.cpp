@@ -4,12 +4,14 @@
 #include <vector>
 using namespace std;
 
+//This class is my node structure...
 class Node {
 public:
     int data;
     Node* next;
 };
 
+//This is class is my linked list...
 class LinkedList {
 public:
     Node* head;
@@ -197,6 +199,18 @@ public:
             cout<<ara[i] <<" ";
         }
     }
+
+    //Traverse the linked list revers order by recursive function...
+    void TraverseRecursive(Node* a){
+        if(a == NULL){
+            return;
+        }
+        TraverseRecursive(a->next);
+        cout<<a->data <<" ";
+    }
+    void ReversePrint(){
+        TraverseRecursive(head);
+    }
 };
 
 int main() {
@@ -235,6 +249,7 @@ int main() {
 
     cout<<"print reverse way... \n";
     l.TraverseReverse(); cout<<"\n";
+    l.ReversePrint();
 
 return 0;
 }
