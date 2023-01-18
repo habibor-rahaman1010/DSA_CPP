@@ -41,6 +41,9 @@ public:
 
     //Insert item at linked list any index...
     void InsertAtAnyIndex(int index, int item) {
+        if(index < 0 || index > getLength()){
+            return;
+        }
 
         if(index == 0){
             InsertAtHead(item);
@@ -51,7 +54,6 @@ public:
         while(current_index != index - 1){
             a = a->nxt;
             current_index++;
-            break;
         }
         Node* new_node = Create_Node(item);
         new_node->nxt = a->nxt;
@@ -93,7 +95,8 @@ int main() {
     dl.InsertAtHead(40);
     dl.InsertAtHead(50);
 
-    dl.InsertAtAnyIndex(1, 100);
+    //dl.InsertAtAnyIndex(1, 100);
+    dl.InsertAtAnyIndex(5, 200);
 
     dl.Traverse();
     cout<<"Length is: " <<dl.getLength() <<"\n";
