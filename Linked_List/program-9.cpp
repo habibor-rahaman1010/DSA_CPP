@@ -1,6 +1,7 @@
 //Linked list implement in c++ program...
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Node {
@@ -184,6 +185,18 @@ public:
         }
     }
 
+    //Traverse the linked list revers order...
+    void TraverseReverse() {
+        Node* a = head;
+        vector<int>ara;
+        while(a != NULL){
+            ara.push_back(a->data);
+            a = a->next;
+        }
+        for(int i = ara.size() - 1; i >= 0; i--){
+            cout<<ara[i] <<" ";
+        }
+    }
 };
 
 int main() {
@@ -207,8 +220,10 @@ int main() {
 
     l.DeleteAtAnyIndex(2);
     l.InsertAfterValue(10, 33);
+    l.InsertAfterValue(7, 35);
 
     l.Traverse(); cout<<"\n";
+
 
     cout<<"18 found at index: " <<l.SearchItem(18) <<"\n";
     cout<<"99 found at index: " <<l.SearchItem(99) <<"\n \n";
@@ -216,7 +231,10 @@ int main() {
     l.SearchAllItem(22);
     l.SearchAllItem(10);
     l.SearchAllItem(78);cout<<"\n";
-    cout<<"Length of linked list: " <<l.getLength() <<"\n";
+    cout<<"Length of linked list: " <<l.getLength() <<"\n \n";
+
+    cout<<"print reverse way... \n";
+    l.TraverseReverse(); cout<<"\n";
 
 return 0;
 }
