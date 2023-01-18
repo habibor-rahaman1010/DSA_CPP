@@ -144,6 +144,18 @@ public:
         delete b;
     }
 
+    //Insert new item after a value...
+    void InsertAfterValue(int value, int item){
+        Node* a = head;
+        while(a->data == value){
+            a = a->next;
+        }
+        Node* b = Create_Node(item);
+
+        b->next = a->next;
+        a->next = b;
+    }
+
     //get linked list length...
     int getLength() {
         Node* a = head;
@@ -187,6 +199,7 @@ int main() {
     l.DeleteAtTail();
 
     l.DeleteAtAnyIndex(2);
+    l.InsertAfterValue(22, 33);
 
     l.Traverse(); cout<<"\n";
 
