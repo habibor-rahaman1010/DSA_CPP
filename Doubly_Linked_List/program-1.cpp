@@ -49,19 +49,21 @@ public:
             InsertAtHead(item);
             return;
         }
+
         Node* a = head;
         int current_index = 0;
         while(current_index != index - 1){
             a = a->nxt;
             current_index++;
         }
+
         Node* new_node = Create_Node(item);
         new_node->nxt = a->nxt;
         new_node->prv = a;
+
         Node* b = a->nxt;
         b->prv = new_node;
         a->nxt = new_node;
-
     }
 
     //Traverse the doubly linked list...
@@ -95,7 +97,7 @@ int main() {
     dl.InsertAtHead(40);
     dl.InsertAtHead(50);
 
-    //dl.InsertAtAnyIndex(1, 100);
+    dl.InsertAtAnyIndex(1, 100);
     dl.InsertAtAnyIndex(5, 200);
 
     dl.Traverse();
