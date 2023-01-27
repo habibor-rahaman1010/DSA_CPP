@@ -1,5 +1,4 @@
-#include<bits/stdc++.h>
-
+#include<iostream>
 using namespace std;
 
 class node
@@ -7,48 +6,51 @@ class node
 public:
     int data;
     node * nxt;
+    node * prv;
 };
 
-class LinkedList
+class DoublyLinkedList
 {
 public:
-    node * head;
+    node *head;
     int sz;
-    LinkedList()
+    DoublyLinkedList()
     {
         head = NULL;
-        sz=0;
+        sz = 0;
     }
 
-    //Creates a new node with data = value and nxt= NULL
-    node* CreateNewNode(int value)
+    //Creates a new node with the given data and returns it O(1)
+    node * CreateNewNode(int data)
     {
         node *newnode = new node;
-        newnode->data = value;
+        newnode->data = data;
         newnode->nxt = NULL;
+        newnode->prv = NULL;
         return newnode;
     }
 
-    // Insert new value at Head
-    void InsertAtHead(int value)
+    //Inserts a node with given data at head O(1)
+    void InsertAtHead(int data)
     {
         sz++;
-        node *a = CreateNewNode(value);
+        node *newnode = CreateNewNode(data);
         if(head == NULL)
         {
-            head = a;
+            head = newnode;
             return;
         }
-        //If head is not NULL
-        a->nxt = head;
-        head = a;
+        node *a = head;
+        newnode->nxt = a;
+        a->prv = newnode;
+        head = newnode;
     }
 
-    //Prints the linked list
+    //Prints the linked list O(n)
     void Traverse()
     {
-        node* a = head;
-        while(a!= NULL)
+        node *a = head;
+        while(a!=NULL)
         {
             cout<<a->data<<" ";
             a = a->nxt;
@@ -56,37 +58,71 @@ public:
         cout<<"\n";
     }
 
-    // This function will return the last node element of the linked list.
-    int getLast(){
-        if(head == NULL){
-            return - 1;
-        }
+    //This function will swap the i-th index and j-th index.
+    void swap(int i, int j){
+        if(i == j) {
+            return;
+        };
         node *a = head;
-        while(a->nxt != NULL){
+        node *b = head;
+        for(int k = 0; k < i; k++){
             a = a->nxt;
+        } 
+        for(int k = 0; k < j; k++){
+            b = b->nxt;
+        } 
+        int temp = a->data;
+        a->data = b->data;
+        b->data = temp;
+    }
+
+
+    void deleteZero() {
+    node *a = head;
+    while(a != NULL) {
+        if(a->data == 0){
+            if(a->prv != NULL){
+                a->prv->nxt = a->nxt;
+            }
+            if(a->nxt != NULL){
+                a->nxt->prv = a->prv;
+            }
+            if(a == head){
+                 head = a->nxt;
+            }
+            sz--;
+            }
+             a = a->nxt;
         }
-        return a->data;
     }
-
-    //This function will return the average of all elements in the linked list.
-    double getAverage(){
-
-    }
-
-
 };
+
 
 int main()
 {
-    LinkedList l;
-    l.InsertAtHead(30);
-    l.InsertAtHead(10);
-    l.InsertAtHead(5);
-    l.InsertAtHead(1);
-    l.Traverse();
-    cout<<l.getLast() <<"\n";
+    DoublyLinkedList dl;
+
+    dl.InsertAtHead(7);
+    dl.InsertAtHead(4);
+    dl.InsertAtHead(6);
+    dl.InsertAtHead(2);
+    dl.InsertAtHead(3);
+
+    dl.Traverse();
+    dl.swap(1, 4);
+    dl.Traverse();
+    cout<<"\n";
 
 
+    dl.InsertAtHead(0);
+    dl.InsertAtHead(2);
+    dl.InsertAtHead(0);
+    dl.InsertAtHead(0);
+    dl.InsertAtHead(5);
+
+    dl.Traverse();
+    dl.deleteZero();
+    dl.Traverse();
 
     return 0;
 }
