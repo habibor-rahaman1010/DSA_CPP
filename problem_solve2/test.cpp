@@ -2,26 +2,29 @@
 #include <vector>
 using namespace std;
 
-bool isPalindrome(string text, int start, int end) {
-    if (start >= end) {
-        return true;
+int findMax(vector<int>& arr, int start, int end) {
+    if (start == end) {
+        return arr[start];
     }
-    if (text[start] != text[end]) {
-        return false;
+    int maxInRemaining = findMax(arr, start + 1, end);
+    if (arr[start] > maxInRemaining) {
+        return arr[start];
     }
-    return isPalindrome(text, start + 1, end - 1);
+    else {
+        return maxInRemaining;
+    }
 }
 
 int main() {
-    string text;
-    cout<<"Enter the value of text: ";
-    cin>>text;
+    int n;
+    cout<<"Enter the value of n: ";
+    cin>> n;
+    vector<int>ara(n);
 
-    if (isPalindrome(text, 0, text.length() - 1)) {
-        cout<< "Yes" << "\n";
-    } else {
-        cout<< "No" << "\n";
+    for(int i = 0; i < ara.size(); i++){
+        cin>>ara[i];
     }
 
-return 0;
+    cout<< findMax(ara, 0, ara.size() - 1) << "\n";
+    return 0;
 }
