@@ -1,21 +1,30 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int findMax(int arr[], int size) {
-    if (size == 1) {
-        return arr[0];
+int findMax(vector<int>& arr, int start, int end) {
+    if (start == end) {
+        return arr[start];
     }
-    int maxInRemaining = findMax(arr+1, size-1);
-    if (arr[0] > maxInRemaining) {
-        return arr[0];
-    } else {
+    int maxInRemaining = findMax(arr, start + 1, end);
+    if (arr[start] > maxInRemaining) {
+        return arr[start];
+    } 
+    else {
         return maxInRemaining;
     }
 }
 
 int main() {
-    int arr[] = {1, 5, 8, 3, 9, 2};
-    int size = sizeof(arr) / sizeof(arr[0]);
-    cout << "The maximum element in the array is: " << findMax(arr, size) << endl;
+    int n;
+    cout<<"Enter the value of n: ";
+    cin>> n;
+    vector<int>ara(n);
+    
+    for(int i = 0; i < ara.size(); i++){
+        cin>>ara[i];
+    }
+
+    cout<< findMax(ara, 0, ara.size() - 1) << "\n";
     return 0;
 }
