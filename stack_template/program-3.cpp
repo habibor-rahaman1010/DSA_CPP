@@ -59,11 +59,11 @@ public:
 };
 
 int main() {
-    Stack<string>st;
-    st.push("Apple");
-    st.push("Banana");
-    st.push("Water Mellon");
-    st.push("Mango");
+    Stack<int>st;
+    st.push(10);
+    st.push(12);
+    st.push(14);
+    st.push(16);
 
     cout<<st.top() <<"\n";
     st.pop();
@@ -77,3 +77,5 @@ int main() {
 
 return 0;
 }
+
+

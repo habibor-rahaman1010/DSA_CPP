@@ -59,11 +59,11 @@ public:
 };
 
 int main() {
-    Stack<string>st;
-    st.push("Apple");
-    st.push("Banana");
-    st.push("Water Mellon");
-    st.push("Mango");
+    Stack<bool>st;
+    st.push(true);
+    st.push(true);
+    st.push(false);
+    st.push(true);
 
     cout<<st.top() <<"\n";
     st.pop();
@@ -77,3 +77,4 @@ int main() {
 
 return 0;
 }
+
