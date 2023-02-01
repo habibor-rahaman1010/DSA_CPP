@@ -1,4 +1,4 @@
-//stack implement in c++ program use doubly linked list...
+//reverse a stack using another temporary stack in c++ program...
 
 #include <iostream>
 using namespace std;
@@ -26,6 +26,15 @@ public:
         new_node->next = NULL;
         new_node->privious = NULL;
         return new_node;
+    }
+
+    //Traverse
+    void Traverse(){
+        Node<T>* a = head;
+        while(a != NULL){
+            cout<<a->data <<" ";
+            a = a->next;
+        }
     }
 
     //Insert item at linked list head...
@@ -96,28 +105,31 @@ public:
         }
         return dl.head->data;
     }
+    int stackGetLength(){
+        return dl.getLength();
+    }
 };
 
 int main() {
-    Stack<string> st;
-    st.push("C++");
-    st.push("C#");
-    st.push("Python");
-    st.push("Data Structure");
-    st.push("Algorithm");
+    Stack<int> st;
+    st.push(10);
+    st.push(20);
+    st.push(30);
+    st.push(40);
+    st.push(50);
 
-    cout<<st.top() <<"\n";
-    st.pop();
-    cout<<st.top() <<"\n";
-    st.pop();
-    cout<<st.top() <<"\n";
-    st.pop();
-    cout<<st.top() <<"\n";
-    st.pop();
-    cout<<st.top() <<"\n";
-    st.pop();
-    cout<<st.top() <<"\n";
+    Stack<int>temp;
+    while(st.stackGetLength() > 0){
+        temp.push(st.top());
+        st.pop();
+    }
+    swap(st, temp);
+    st.dl.Traverse(); cout<<"\n";
+
+    while(st.stackGetLength() > 0){
+        cout<<st.top() <<" ";
+        st.pop();
+    }
 
 return 0;
 }
-
