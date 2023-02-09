@@ -66,7 +66,7 @@ int main() {
     char expression[100];
     cout << "Enter the expression: ";
     cin >> expression;
-    cout << "Result: " << evaluate(expression) << "\n";
+    cout<< evaluate(expression) << "\n";
     return 0;
 }
 
