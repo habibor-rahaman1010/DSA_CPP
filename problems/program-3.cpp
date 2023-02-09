@@ -1,35 +1,36 @@
 #include <iostream>
 #include <stack>
 #include <string>
-
 using namespace std;
 
-// Function to return the precedence of operators
-int prec(char c) {
-    if (c == '^')
-        return 3;
-    else if (c == '*' || c == '/')
+int checked_operator(char c) {
+    if (c == '^'){
+       return 3;
+    }
+    else if (c == '*' || c == '/'){
         return 2;
-    else if (c == '+' || c == '-')
+    }
+
+    else if (c == '+' || c == '-'){
         return 1;
-    else
+    }
+
+    else{
         return -1;
+    }
 }
 
-// Function to convert infix expression to postfix expression
 string infixToPostfix(string exp) {
     string postfix = "";
     stack<char> s;
     s.push('N');
     int length = exp.length();
     for (int i = 0; i < length; i++) {
-        // If the scanned character is an operand, add it to output
         if ((exp[i] >= 'a' && exp[i] <= 'z') || (exp[i] >= 'A' && exp[i] <= 'Z'))
             postfix += exp[i];
-        // If the scanned character is an '(' , push it to the stack
-        else if (exp[i] == '(')
-            s.push('(');
-        // If the scanned character is an ')' , pop and output from the stack until and '(' is encountered
+        else if (exp[i] == '('){
+             s.push('(');
+        }
         else if (exp[i] == ')') {
             while (s.top() != 'N' && s.top() != '(') {
                 char c = s.top();
@@ -40,9 +41,9 @@ string infixToPostfix(string exp) {
                 char c = s.top();
                 s.pop();
             }
-        } else {
-            // If the scanned character is an operator
-            while (s.top() != 'N' && prec(exp[i]) <= prec(s.top())) {
+        }
+        else {
+            while (s.top() != 'N' && checked_operator(exp[i]) <= checked_operator(s.top())) {
                 char c = s.top();
                 s.pop();
                 postfix += c;
@@ -51,7 +52,6 @@ string infixToPostfix(string exp) {
         }
     }
 
-    // Pop all the remaining elements from the stack
     while (s.top() != 'N') {
         char c = s.top();
         s.pop();
@@ -60,10 +60,12 @@ string infixToPostfix(string exp) {
     return postfix;
 }
 
-// Main function
 int main() {
-    string exp = "(a+b)*(c+d)";
-    cout << "Infix Expression: " << exp << endl;
-    cout << "Postfix Expression: " << infixToPostfix(exp) << endl;
-    return 0;
+    string expression = "a+(b+c)*d-e";
+    string expression2 = "(a+b)*(c+d)";
+
+    cout<< infixToPostfix(expression) <<"\n";
+    cout<< infixToPostfix(expression2) <<"\n";
+
+return 0;
 }
