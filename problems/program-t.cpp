@@ -1,75 +1,89 @@
 #include <iostream>
 #include <stack>
-#include <string>
-
 using namespace std;
 
-int perform_operation(int operand1, int operand2, char operation) {
-  if (operation == '+') return operand1 + operand2;
-  else if (operation == '-') return operand1 - operand2;
-  else if (operation == '*') return operand1 * operand2;
-  else if (operation == '/') return operand1 / operand2;
-  else return -1;
-}
-
-int evaluate_expression(string expression) {
-  stack<int> operands;
-  stack<char> operations;
-
-  for (int i = 0; i < expression.length(); i++) {
-    if (expression[i] == ' ') continue;
-    else if (expression[i] >= '0' && expression[i] <= '9') {
-      int operand = 0;
-      while (i < expression.length() && expression[i] >= '0' && expression[i] <= '9') {
-        operand = operand * 10 + (expression[i] - '0');
-        i++;
-      }
-      i--;
-      operands.push(operand);
-    } else if (expression[i] == '(') operations.push(expression[i]);
-    else if (expression[i] == ')') {
-      while (operations.top() != '(') {
-        int operand2 = operands.top();
-        operands.pop();
-        int operand1 = operands.top();
-        operands.pop();
-        char operation = operations.top();
-        operations.pop();
-        operands.push(perform_operation(operand1, operand2, operation));
-      }
-      operations.pop();
-    } else {
-      while (!operations.empty() && operations.top() != '(') {
-        int operand2 = operands.top();
-        operands.pop();
-        int operand1 = operands.top();
-        operands.pop();
-        char operation = operations.top();
-        operations.pop();
-        operands.push(perform_operation(operand1, operand2, operation));
-      }
-      operations.push(expression[i]);
+int operator_check(char ch){
+    if (ch == '+' || ch == '-'){
+        return 1;
     }
-  }
-
-  while (!operations.empty()) {
-    int operand2 = operands.top();
-    operands.pop();
-    int operand1 = operands.top();
-    operands.pop();
-    char operation = operations.top();
-    operations.pop();
-    operands.push(perform_operation(operand1, operand2, operation));
-  }
-
-  return operands.top();
+    else if (ch == '*' || ch == '/'){
+        return 2;
+    }
+    else{
+        return -1;
+    }
 }
 
-int main() {
-  string expression = "4+(5+6)*8-1";
-  cout << evaluate_expression(expression) << endl;
-  expression = "(2+4)*(5+6)";
-  cout << evaluate_expression(expression) << endl;
-  return 0;
+int operand(int x, int y, char ch){
+    if(ch == '+'){
+        return x + y;
+    }
+    else if(ch == '-'){
+        return x - y;
+    }
+    else if(ch == '*'){
+        return x * y;
+    }
+    else if(ch == '/'){
+        return x / y;
+    }
+    else{
+        return -1;
+    }
 }
 
+//4+(5+6)*8-1
+//(2+4)*(5+6)
+int main(){
+    string expression;
+    cin >> expression;
+    string ans = "";
+    stack<char> st;
+    for (int i = 0; i < expression.size(); i++){
+        char current = expression[i];
+        if (current >= '0' && current <= '9'){
+            ans += current;
+        }
+        else if (current == '('){
+            st.push(current);
+        }
+        else if (current == ')'){
+            while (st.top() != '('){
+                ans += st.top();
+                st.pop();
+            }
+            st.pop();
+        }
+        else{
+            while (st.size() && operator_check(st.top()) >= operator_check(current)){
+                ans += st.top();
+                st.pop();
+            }
+            st.push(current);
+        }
+    }
+    while (st.size()){
+        ans += st.top();
+        st.pop();
+    }
+
+    stack<int>st2;
+    int result = 0;
+    for(int i = 0; i < ans.size(); i++){
+        char current2=ans[i];
+        if(current2 >= '0' && current2 <= '9'){
+            int val=current2-48;
+            st2.push(val);
+        }
+        else{
+            int value2 = st2.top();
+            st2.pop();
+            int value1 = st2.top();
+            st2.pop();
+            result = operand(value1, value2, current2);
+            st2.push(result);
+        }
+    }
+    cout<<result<<"\n";
+    return 0;
+}
