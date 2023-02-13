@@ -62,7 +62,6 @@ public:
                 newnode->parent = a;
                 return;
             }
-
         }
     }
 

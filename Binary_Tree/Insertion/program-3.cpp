@@ -7,6 +7,7 @@ using namespace std;
 class Node{
 public:
     int id;
+    int value;
     Node *left;
     Node *right;
     Node *parent;
@@ -20,17 +21,18 @@ public:
         root = NULL;
     }
 
-    Node *CreateNewNode(int id){
+    Node *CreateNewNode(int id, int value){
         Node *newNode = new Node;
         newNode->id = id;
+        newNode->value = value;
         newNode->left = NULL;
         newNode->right = NULL;
         newNode->parent = NULL;
         return newNode;
     }
 
-    void Insertion(int id){
-        Node *newNode = CreateNewNode(id);
+    void Insertion(int id, int value){
+        Node *newNode = CreateNewNode(id, value);
         if(root == NULL){
             root = newNode;
             return;
@@ -96,18 +98,32 @@ public:
 
         }
     }
+
+    void Search(Node *a, int value){
+        if(a == NULL){
+            return;
+        }
+        if(a->value == value){
+            cout<<"Node id: " <<a->id;
+            return;
+        }
+        Search(a->left, value);
+        Search(a->right, value);
+    }
 };
 
 int main() {
     BinaryTree bt;
-    bt.Insertion(0);
-    bt.Insertion(1);
-    bt.Insertion(2);
-    bt.Insertion(3);
-    bt.Insertion(4);
-    bt.Insertion(5);
+    bt.Insertion(0, 7);
+    bt.Insertion(1, 8);
+    bt.Insertion(2, 11);
+    bt.Insertion(3, 12);
+    bt.Insertion(4, 9);
+    bt.Insertion(5, 10);
 
     bt.BFS();
+    bt.Search(bt.root, 9);
 
 return 0;
 }
+
