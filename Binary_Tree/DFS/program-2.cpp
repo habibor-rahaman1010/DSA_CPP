@@ -1,3 +1,5 @@
+//DFS implement into binary tree in c++ program...
+
 //Binary tree implement and BFS apply on the tree in c++ program...
 
 #include <iostream>
@@ -53,41 +55,21 @@ public:
         Root = allNodes[0];
     }
 
-    void BFS(){
-        if(Root == NULL){
+    void DFS(Node *a){
+        if(a == NULL){
             return;
         }
-        queue<Node *>q;
-        q.push(Root);
-
-        while(!q.empty()){
-            Node *a = q.front();
-            q.pop();
-            int p = -1, l = -1, r = -1;
-
-            if(a->Left != NULL){
-               l = a->Left->Id;
-               q.push(a->Left);
-            }
-
-            if(a->Right != NULL){
-               r = a->Right->Id;
-               q.push(a->Right);
-            }
-
-            if(a->Parent != NULL){
-                p = a->Parent->Id;
-            }
-            cout<<"Node " <<a->Id <<" : Parent = " <<p <<" , left child = " <<l
-            <<" , right child = " <<r <<"\n";
-        }
+        cout<<a->Id <<" ";
+        DFS(a->Left);
+        DFS(a->Right);
     }
 };
 
 int main() {
     BinaryTree bt;
     bt.build_binary_tree();
-    bt.BFS();
+    bt.DFS(bt.Root);
 
 return 0;
 }
+

@@ -54,6 +54,9 @@ public:
     }
 
     void BFS(){
+        if(Root == NULL){
+            return;
+        }
         queue<Node *>q;
         q.push(Root);
 
