@@ -1,6 +1,6 @@
 //DFS implement into binary tree in c++ program...
 
-//Binary tree implement and DFS In order traversal apply on the tree in c++ program...
+//Binary tree implement and DFS Pre order traversal apply on the tree in c++ program...
 
 #include <iostream>
 #include <queue>
@@ -55,21 +55,20 @@ public:
         Root = allNodes[0];
     }
 
-    void Inorder(Node *a){
+    void Preorder(Node *a){
         if(a == NULL){
             return;
         }
-        Inorder(a->Left);
         cout<<a->Id <<" ";
-        Inorder(a->Right);
+        Preorder(a->Left);
+        Preorder(a->Right);
     }
 };
 
 int main() {
     BinaryTree bt;
     bt.build_binary_tree();
-    bt.Inorder(bt.Root);
+    bt.Preorder(bt.Root);
 
 return 0;
 }
-
