@@ -1,4 +1,4 @@
-//Binary Search Tree node delete in c++ program...
+//Binary Search Tree node id delete in c++ program...
 
 #include <iostream>
 #include <queue>
@@ -84,7 +84,63 @@ public:
         }
     }
 
+    //Delete function in binary tree...
+    void Delete(int item){
+        Node *current = root;
+        Node *privious = NULL;
 
+        while(current != NULL){
+            if(item > current->data){
+                privious = current;
+                current = current->right;
+            }
+            else if(item < current->data){
+                privious = current;
+                current = current->left;
+            }
+            else{
+                break;
+            }
+        }
+
+        if(current == NULL){
+            cout<<"Item is not present in binary search tree! \n";
+            return;
+        }
+        //case:1 both childe is NULL
+        if(current->left == NULL && current->right == NULL){
+            if(privious->left->data == current->data){
+                privious->left = NULL;
+            }
+            else{
+                privious->right = NULL;
+            }
+            delete current;
+            return;
+        }
+        //case:2 node has only right childe...
+        if(current->left == NULL && current->right != NULL){
+            if(privious->left->data == current->data){
+                privious->left = current->right;
+            }
+            else{
+                privious->right = current->right;
+            }
+            delete current;
+            return;
+        }
+        //case:2 node has only left childe...
+        if(current->left != NULL && current->right == NULL){
+            if(privious->left->data == current->data){
+                privious->left = current->left;
+            }
+            else{
+                privious->right = current->left;
+            }
+            delete current;
+            return;
+        }
+    }
 };
 
 int main() {
@@ -99,12 +155,6 @@ int main() {
 
     bst.BFS();
 
-    if(bst.Search(7)){
-        cout<<"Yes item exist! \n";
-    }
-    else{
-       cout<<"No item don't exist! \n";
-    }
 
 return 0;
 }
