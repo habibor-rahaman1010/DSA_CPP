@@ -9,7 +9,6 @@ public:
     int data;
     Node *left;
     Node *right;
-    Node *parent;
 };
 
 class Binary_Search_Tree{
@@ -25,9 +24,11 @@ public:
         newNode->data = item;
         newNode->left = NULL;
         newNode->right = NULL;
-        newNode->parent = NULL;
         return newNode;
     }
+
+
+
 };
 
 int main() {
