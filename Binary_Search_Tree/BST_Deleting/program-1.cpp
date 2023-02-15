@@ -140,6 +140,14 @@ public:
             delete current;
             return;
         }
+        //case:3 node has two childe...
+        Node *temp = current->right;
+        while(temp->left != NULL){
+            temp = temp->left;
+        }
+        int saved = temp->data;
+        Delete(saved);
+        current->data = saved;
     }
 };
 
@@ -153,7 +161,7 @@ int main() {
     bst.Insert(7);
     bst.Insert(8);
 
-    bst.Delete(8);
+    bst.Delete(6);
     bst.BFS();
 
 
