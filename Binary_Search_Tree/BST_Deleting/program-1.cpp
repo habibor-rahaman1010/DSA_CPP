@@ -109,7 +109,7 @@ public:
         }
         //case:1 both childe is NULL
         if(current->left == NULL && current->right == NULL){
-            if(privious->left->data == current->data){
+            if(privious->left != NULL && privious->left->data == current->data){
                 privious->left = NULL;
             }
             else{
@@ -120,7 +120,7 @@ public:
         }
         //case:2 node has only right childe...
         if(current->left == NULL && current->right != NULL){
-            if(privious->left->data == current->data){
+            if(privious->left != NULL && privious->left->data == current->data){
                 privious->left = current->right;
             }
             else{
@@ -131,7 +131,7 @@ public:
         }
         //case:2 node has only left childe...
         if(current->left != NULL && current->right == NULL){
-            if(privious->left->data == current->data){
+            if(privious->left != NULL && privious->left->data == current->data){
                 privious->left = current->left;
             }
             else{
@@ -153,6 +153,7 @@ int main() {
     bst.Insert(7);
     bst.Insert(8);
 
+    bst.Delete(8);
     bst.BFS();
 
 
