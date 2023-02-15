@@ -71,13 +71,14 @@ public:
                 privious = current;
                 current = current->right;
             }
+
             else{
                 privious = current;
                 current = current->left;
             }
         }
         if(newNode->data > privious->data){
-                privious->right = newNode;
+            privious->right = newNode;
         }
         else{
             privious->left = newNode;
@@ -98,3 +99,4 @@ int main() {
     bst.BFS();
 return 0;
 }
+
