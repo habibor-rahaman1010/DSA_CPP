@@ -1,4 +1,4 @@
-//Binary Search Tree new data Search in c++ program...
+//Binary Search Tree data Search in c++ program...
 
 #include <iostream>
 #include <queue>
@@ -84,7 +84,7 @@ public:
         }
     }
 
-    //
+    // Search function in binary tree...
     bool Search(int item){
         Node *current = root;
 
