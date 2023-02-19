@@ -30,6 +30,32 @@ public:
         }
         cout<<"\n";
     }
+
+    void down_heapify(int index){
+        while(1){
+            int largest = index;
+            int left = (2 * index + 1);
+            int right = (2 * index + 2);
+
+            if(left < nodes.size() && nodes[largest] < nodes[left]){
+                largest = left;
+            }
+            if(right < nodes.size() && nodes[largest] < nodes[right]){
+                largest = right;
+            }
+            if(largest == index){
+                break;
+            }
+            swap(nodes[index], nodes[largest]);
+            index = largest;
+        }
+    }
+
+    void Delete(int index){
+        swap(nodes[index], nodes[nodes.size() - 1]);
+        nodes.pop_back();
+        down_heapify(index);
+    }
 };
 
 int main(){
@@ -39,7 +65,11 @@ int main(){
     heap.Insert(9);
     heap.Insert(1);
     heap.Insert(10);
+    heap.Insert(20);
+    heap.Insert(30);
 
+    heap.PrintHeap();
+    heap.Delete(0);
     heap.PrintHeap();
 
 return 0;
