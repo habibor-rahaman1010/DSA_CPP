@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 class MaxHeap{
@@ -87,18 +88,28 @@ public:
             down_heapify(i);
         }
     }
-
-    //implement heap sort in c++ program...
-
 };
 
-int main(){
-    MaxHeap  heap;
+//implement heap sort in c++ program...
+vector<int> heap_sort(vector<int>ara){
+    MaxHeap h;
+    h.build_from_array(ara);
+    vector<int>ans;
 
+    for(int i = 0; i < ara.size(); i++){
+        ans.push_back(h.ExtractMax());
+    }
+    reverse(ans.begin(), ans.end());
+    return ans;
+}
+
+int main(){
     vector<int> ara = {1, 2, 3, 4, 10, 9, 8, 7};
-    heap.build_from_array(ara);
-    heap.PrintHeap();
+    vector<int>sorted = heap_sort(ara);
+
+    for(int i = 0; i < sorted.size(); i++){
+        cout<<sorted[i] <<" ";
+    }
 
 return 0;
 }
-
