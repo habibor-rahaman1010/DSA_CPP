@@ -25,6 +25,26 @@ public:
         up_heapify(nodes.size() - 1);
     }
 
+
+    void down_heapify(int index){
+        while(1){
+            int largest = index;
+            int left = 2 * index + 1;
+            int right = 2 * index + 2;
+
+            if(){
+
+            }
+        }
+    }
+
+    //Delete node in max heap...
+    void Delete(int index){
+        swap(nodes[index], nodes[nodes.size() - 1]);
+        nodes.pop_back();
+        down_heapify(index);
+    }
+
     //print Max Heap...
     void PrintHeap(){
         for(int i = 0; i < nodes.size(); i++){
