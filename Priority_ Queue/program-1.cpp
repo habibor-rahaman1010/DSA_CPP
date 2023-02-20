@@ -78,6 +78,10 @@ public:
         return store;
     }
 
+    int getSize(){
+        return nodes.size();
+    }
+
     //build heap from array
     void build_from_array(vector<int>&ara){
         nodes = ara;
@@ -89,12 +93,44 @@ public:
     }
 };
 
-int main(){
-    MaxHeap  heap;
+class PriorityQueue{
+public:
+    MaxHeap heap;
 
-    vector<int> ara = {1, 2, 3, 4, 10, 9, 8, 7};
-    heap.build_from_array(ara);
-    heap.PrintHeap();
+    PriorityQueue(){
+
+    }
+
+    void Push(int item){
+        heap.Insert(item);
+    }
+
+    void Pop(){
+        heap.Delete(0);
+    }
+
+    int Top(){
+        return heap.getMax();
+    }
+
+    int Size(){
+        return heap.getSize();
+    }
+};
+
+int main(){
+    PriorityQueue pq;
+
+    pq.Push(5);
+    pq.Push(7);
+    pq.Push(10);
+    pq.Push(1);
+    pq.Push(2);
+
+    while(pq.Size() != 0){
+        cout<<pq.Top() <<" ";
+        pq.Pop();
+    }
 
 return 0;
 }
