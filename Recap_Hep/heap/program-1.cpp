@@ -35,14 +35,30 @@ public:
 
     //this is my down_heapify funtion...
     void down_heapify(int index){
+        while(1){
+            int largest = index;
+            int left = (2 * index) + 1;
+            int right = (2 * index) + 2;
 
+            if(left < nodes.size() && nodes[largest] < nodes[left]){
+                largest = left;
+            }
+            if(right < nodes.size() && nodes[largest] < nodes[right]){
+                largest = right;
+            }
+            if(largest == index){
+                break;
+            }
+            swap(nodes[index], nodes[largest]);
+            index = largest;
+        }
     }
 
     //delete heap node...
     void Delete(int index){
         swap(nodes[index], nodes[nodes.size() - 1]);
-        down_heapify(index);
         nodes.pop_back();
+        down_heapify(index);
     }
 
 };
@@ -57,7 +73,9 @@ int main() {
     h.Insert(10);
     h.Insert(5);
     h.Insert(8);
-
+    h.print_heap();
+    cout<<"\n";
+    h.Delete(0);
     h.print_heap();
 
 return 0;
